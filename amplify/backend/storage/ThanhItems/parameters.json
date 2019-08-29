@@ -1,0 +1,5 @@
+{
+    "tableName": "ThanhItems",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}
