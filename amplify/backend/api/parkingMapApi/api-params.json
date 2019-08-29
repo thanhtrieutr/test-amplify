@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/parking-map",
+            "lambdaFunction": "parkingMapHandler",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "parkingMapApi",
+    "apiName": "parkingMapApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "parkingMapHandler"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "hello-amplify-dev-20190829114010-authRole",
+        "unAuthRoleName": "hello-amplify-dev-20190829114010-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "parkingMapHandler",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

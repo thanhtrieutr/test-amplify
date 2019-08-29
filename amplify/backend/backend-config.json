@@ -3,6 +3,18 @@
 		"ThanhItems": {
 			"service": "DynamoDB",
 			"providerPlugin": "awscloudformation"
+		},
+		"booking": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
+		},
+		"ParkingMap": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
+		},
+		"ParkingPlace": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
 		}
 	},
 	"function": {
@@ -20,6 +32,72 @@
 					]
 				}
 			]
+		},
+		"bookingHandler": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "booking",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				},
+				{
+					"category": "function",
+					"resourceName": "testFunction",
+					"attributes": [
+						"Name"
+					]
+				},
+				{
+					"category": "api",
+					"resourceName": "testApi",
+					"attributes": [
+						"ApiName"
+					]
+				},
+				{
+					"category": "auth",
+					"resourceName": "helloamplifyf0707c6f",
+					"attributes": [
+						"UserPoolId"
+					]
+				}
+			]
+		},
+		"parkingMapHandler": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "ParkingMap",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"parkingPlaceHandler": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "ParkingPlace",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
 		}
 	},
 	"api": {
@@ -30,6 +108,48 @@
 				{
 					"category": "function",
 					"resourceName": "testFunction",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"bookingApi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "bookingHandler",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"parkingMapApi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "parkingMapHandler",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"parkingPlaceApi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "parkingPlaceHandler",
 					"attributes": [
 						"Name",
 						"Arn"

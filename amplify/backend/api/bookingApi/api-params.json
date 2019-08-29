@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/booking",
+            "lambdaFunction": "bookingHandler",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "bookingApi",
+    "apiName": "bookingApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "bookingHandler"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "hello-amplify-dev-20190829114010-authRole",
+        "unAuthRoleName": "hello-amplify-dev-20190829114010-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "bookingHandler",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "903b3573"
+}

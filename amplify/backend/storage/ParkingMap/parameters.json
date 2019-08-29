@@ -1,0 +1,5 @@
+{
+    "tableName": "ParkingMap",
+    "partitionKeyName": "id",
+    "partitionKeyType": "S"
+}

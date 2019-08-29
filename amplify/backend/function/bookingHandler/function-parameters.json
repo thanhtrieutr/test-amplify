@@ -1,0 +1,36 @@
+{
+    "permissions": {
+        "storage": {
+            "booking": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        },
+        "function": {
+            "testFunction": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        },
+        "api": {
+            "testApi": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        },
+        "auth": {
+            "helloamplifyf0707c6f": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}
